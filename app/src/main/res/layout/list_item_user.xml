@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.android.vlad.jsonplacerholderdemo.model.User" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/default_margin"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="@dimen/default_margin"
+        android:layout_marginBottom="4dp"
+        android:onClick="@{clickListener}"
+        card_view:cardCornerRadius="4dp"
+        card_view:elevation="12dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/gradient_card_view_background">
+
+            <View
+                android:id="@+id/card_separator"
+                android:layout_width="2dp"
+                android:layout_height="140dp"
+                android:background="@android:color/white"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="@dimen/default_margin"
+                android:text="@{user.name}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/default_title"
+                card_view:layout_constraintBottom_toTopOf="@id/horizontal_guideline"
+                card_view:layout_constraintEnd_toStartOf="@id/card_separator"
+                card_view:layout_constraintStart_toStartOf="parent"
+                tools:text='Clementine Bauch' />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/horizontal_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                card_view:layout_constraintGuide_percent="0.5" />
+
+            <TextView
+                android:id="@+id/username_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin"
+                android:text="@{user.userName}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/default_text"
+                card_view:layout_constraintEnd_toStartOf="@id/card_separator"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@id/name_text"
+                tools:text='Clementine Bauch' />
+
+            <ImageView
+                android:id="@+id/phone_image"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/ic_phone"
+                card_view:layout_constraintBottom_toTopOf="@id/horizontal_guideline"
+                card_view:layout_constraintStart_toEndOf="@id/card_separator"
+                card_view:layout_constraintTop_toTopOf="@id/card_separator" />
+
+            <TextView
+                android:id="@+id/phone_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:text="@{user.phone}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/default_text"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@id/phone_image"
+                card_view:layout_constraintTop_toTopOf="@id/phone_image"
+                tools:text="1-770-736-8031" />
+
+            <ImageView
+                android:id="@+id/email_image"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_email"
+                card_view:layout_constraintBottom_toBottomOf="@id/horizontal_guideline"
+                card_view:layout_constraintStart_toStartOf="@id/phone_image"
+                card_view:layout_constraintTop_toTopOf="@id/horizontal_guideline" />
+
+            <TextView
+                android:id="@+id/email_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:text="@{user.email}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/default_text"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@id/email_image"
+                card_view:layout_constraintTop_toTopOf="@id/email_image"
+                tools:text="Sincere@april.biz" />
+
+            <ImageView
+                android:id="@+id/web_image"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_domain"
+                card_view:layout_constraintBottom_toBottomOf="@id/card_separator"
+                card_view:layout_constraintStart_toStartOf="@id/email_image"
+                card_view:layout_constraintTop_toBottomOf="@id/horizontal_guideline" />
+
+            <TextView
+                android:id="@+id/web_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:text="@{user.webSite}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/default_text"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@id/web_image"
+                card_view:layout_constraintTop_toTopOf="@id/web_image"
+                tools:text="hildegard.org" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
