@@ -12,6 +12,7 @@ import com.android.vlad.jsonplacerholderdemo.di.Injectable
 import com.android.vlad.jsonplacerholderdemo.databinding.FragmentUsersBinding
 import com.android.vlad.jsonplacerholderdemo.di.injectViewModel
 import com.android.vlad.jsonplacerholderdemo.util.hide
+import com.android.vlad.jsonplacerholderdemo.util.setTitle
 import com.android.vlad.jsonplacerholderdemo.util.show
 import com.google.android.material.snackbar.Snackbar
 import javax.inject.Inject
@@ -30,7 +31,7 @@ class UserFragment : Fragment(), Injectable {
 
         val binding = FragmentUsersBinding.inflate(inflater, container, false)
         context ?: return binding.root
-
+        setTitle("Users")
         val adapter = UserAdapter()
         binding.usersRecyclerView.adapter = adapter
         subscribeUi(binding, adapter)

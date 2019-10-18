@@ -18,6 +18,7 @@ import com.android.vlad.jsonplacerholderdemo.posts.ui.PostAdapter
 import com.android.vlad.jsonplacerholderdemo.posts.ui.PostFragmentArgs
 import com.android.vlad.jsonplacerholderdemo.posts.ui.PostViewModel
 import com.android.vlad.jsonplacerholderdemo.util.hide
+import com.android.vlad.jsonplacerholderdemo.util.setTitle
 import com.android.vlad.jsonplacerholderdemo.util.show
 import com.google.android.material.snackbar.Snackbar
 import javax.inject.Inject
@@ -39,7 +40,7 @@ class CommentFragment : Fragment(), Injectable {
 
         val binding = FragmentCommentsBinding.inflate(inflater, container, false)
         context ?: return binding.root
-
+        setTitle("Comments")
         val adapter = CommentAdapter()
         binding.commentsRecyclerView.adapter = adapter
         subscribeUi(binding, adapter)
