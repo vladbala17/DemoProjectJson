@@ -1,5 +1,6 @@
 package com.android.vlad.jsonplacerholderdemo.api
 
+import com.android.vlad.jsonplacerholderdemo.model.Comment
 import com.android.vlad.jsonplacerholderdemo.model.Post
 import com.android.vlad.jsonplacerholderdemo.model.User
 import retrofit2.Response
@@ -17,5 +18,9 @@ interface WebService {
 
     @GET("/posts")
     suspend fun getPosts(@Query("userId") id: String): Response<List<Post>>
+
+    @GET("/comments")
+    suspend fun getComments(@Query("postId") id: String): Response<List<Comment>>
+
 
 }

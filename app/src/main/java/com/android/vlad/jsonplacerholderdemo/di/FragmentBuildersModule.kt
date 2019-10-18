@@ -1,6 +1,7 @@
 package com.android.vlad.jsonplacerholderdemo.di
 
 
+import com.android.vlad.jsonplacerholderdemo.comments.ui.CommentFragment
 import com.android.vlad.jsonplacerholderdemo.posts.ui.PostFragment
 import com.android.vlad.jsonplacerholderdemo.users.ui.UserFragment
 import dagger.Module
@@ -14,4 +15,7 @@ abstract class FragmentBuildersModule {
 
     @ContributesAndroidInjector
     abstract fun contributePostFragment(): PostFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeCommentFragment(): CommentFragment
 }

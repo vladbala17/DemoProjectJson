@@ -10,10 +10,12 @@
         android:name="com.android.vlad.jsonplacerholderdemo.users.ui.UserFragment"
         android:label="UserFragment"
         tools:layout="@layout/fragment_users">
+
         <action
             android:id="@+id/action_userFragment_to_postFragment"
             app:destination="@id/postFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/postFragment"
         android:name="com.android.vlad.jsonplacerholderdemo.posts.ui.PostFragment"
@@ -22,6 +24,20 @@
 
         <argument
             android:name="userId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_postFragment_to_commentFragment"
+            app:destination="@id/commentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/commentFragment"
+        android:name="com.android.vlad.jsonplacerholderdemo.comments.ui.CommentFragment"
+        android:label="CommentFragment"
+        tools:layout="@layout/fragment_comments">
+
+        <argument
+            android:name="postId"
             app:argType="string" />
     </fragment>
 

@@ -3,11 +3,13 @@ package com.android.vlad.jsonplacerholderdemo.posts.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android.vlad.jsonplacerholderdemo.databinding.ListItemPostBinding
 import com.android.vlad.jsonplacerholderdemo.model.Post
+import com.android.vlad.jsonplacerholderdemo.users.ui.UserFragmentDirections
 
 class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(DiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
@@ -27,6 +29,8 @@ class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(DiffCallback()
 
     private fun createOnClickListener(id: String): View.OnClickListener {
         return View.OnClickListener {
+            val direction = PostFragmentDirections.actionPostFragmentToCommentFragment(id)
+            it.findNavController().navigate(direction)
         }
     }
 

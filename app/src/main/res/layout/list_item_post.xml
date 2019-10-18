@@ -2,7 +2,6 @@
 <layout>
 
     <data>
-
         <variable
             name="post"
             type="com.android.vlad.jsonplacerholderdemo.model.Post" />

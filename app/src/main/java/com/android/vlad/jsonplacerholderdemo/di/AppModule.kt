@@ -2,6 +2,7 @@ package com.android.vlad.jsonplacerholderdemo.di
 
 import android.app.Application
 import com.android.vlad.jsonplacerholderdemo.api.WebService
+import com.android.vlad.jsonplacerholderdemo.comments.data.RemoteCommentDataSource
 import com.android.vlad.jsonplacerholderdemo.data.AppDatabase
 import com.android.vlad.jsonplacerholderdemo.posts.data.RemotePostDataSource
 import com.android.vlad.jsonplacerholderdemo.users.data.RemoteUserDataSource
@@ -32,6 +33,9 @@ class AppModule {
     @Provides
     fun providePostDataSource(webService: WebService) = RemotePostDataSource(webService)
 
+    @Singleton
+    @Provides
+    fun provideCommentDataSource(webService: WebService) = RemoteCommentDataSource(webService)
 
     @JsonPlacerAPI
     @Provides
@@ -55,6 +59,9 @@ class AppModule {
     @Provides
     fun providePostDao(db: AppDatabase) = db.postDao()
 
+    @Singleton
+    @Provides
+    fun provideCommentDao(db: AppDatabase) = db.commentDao()
 
     @CoroutineScopeIO
     @Provides

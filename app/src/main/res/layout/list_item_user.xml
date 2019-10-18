@@ -2,7 +2,6 @@
 <layout>
 
     <data>
-
         <variable
             name="user"
             type="com.android.vlad.jsonplacerholderdemo.model.User" />

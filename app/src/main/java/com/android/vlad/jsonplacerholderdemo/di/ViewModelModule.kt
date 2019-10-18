@@ -2,6 +2,7 @@ package com.android.vlad.jsonplacerholderdemo.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.android.vlad.jsonplacerholderdemo.comments.ui.CommentViewModel
 import com.android.vlad.jsonplacerholderdemo.posts.ui.PostViewModel
 import com.android.vlad.jsonplacerholderdemo.users.ui.UserViewModel
 import dagger.Binds
@@ -23,5 +24,10 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(PostViewModel::class)
     abstract fun bindPostViewModel(viewModel: PostViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CommentViewModel::class)
+    abstract fun bindCommentViewModel(viewModel: CommentViewModel): ViewModel
 
 }

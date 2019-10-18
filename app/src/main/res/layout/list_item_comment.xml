@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="comment"
+            type="com.android.vlad.jsonplacerholderdemo.model.Comment" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:layout_marginBottom="4dp"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/comment_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin"
+            android:text="@{comment.name}"
+            android:textAllCaps="true"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/default_title"
+            android:textStyle="bold|italic"
+            tools:text="quo vero reiciendis velit similique earum" />
+
+        <TextView
+            android:id="@+id/comment_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin"
+            android:text="@{comment.body}"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            tools:text="est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et" />
+
+        <LinearLayout
+            android:id="@+id/author_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/by_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="4dp"
+                android:text="@string/by_label"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/default_text"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/comment_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{comment.email}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/default_text"
+                android:textStyle="italic"
+                tools:text="Jayne_Kuhic@sydney.com" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>
