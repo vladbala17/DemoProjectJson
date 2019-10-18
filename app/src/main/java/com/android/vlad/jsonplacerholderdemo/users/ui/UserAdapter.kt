@@ -29,6 +29,8 @@ class UserAdapter : ListAdapter<User, UserAdapter.UserViewHolder>(DiffCallback()
 
     private fun createOnClickListener(id: String): View.OnClickListener {
         return View.OnClickListener {
+            val direction = UserFragmentDirections.actionUserFragmentToPostFragment(id)
+            it.findNavController().navigate(direction)
         }
     }
 

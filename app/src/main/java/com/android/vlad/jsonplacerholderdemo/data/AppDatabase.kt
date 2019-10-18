@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 import com.android.vlad.jsonplacerholderdemo.model.Comment
 import com.android.vlad.jsonplacerholderdemo.model.Post
 import com.android.vlad.jsonplacerholderdemo.model.User
+import com.android.vlad.jsonplacerholderdemo.posts.data.PostDao
 import com.android.vlad.jsonplacerholderdemo.users.data.UserDao
 
 /**
@@ -20,6 +21,7 @@ abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
 
+    abstract fun postDao(): PostDao
 
 
     companion object {

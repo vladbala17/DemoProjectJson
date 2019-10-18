@@ -1,9 +1,8 @@
-package com.android.vlad.dataproject.di
+package com.android.vlad.jsonplacerholderdemo.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.android.vlad.jsonplacerholderdemo.di.ViewModelFactory
-import com.android.vlad.jsonplacerholderdemo.di.ViewModelKey
+import com.android.vlad.jsonplacerholderdemo.posts.ui.PostViewModel
 import com.android.vlad.jsonplacerholderdemo.users.ui.UserViewModel
 import dagger.Binds
 import dagger.Module
@@ -13,11 +12,16 @@ import dagger.multibindings.IntoMap
 @Module
 abstract class ViewModelModule {
     @Binds
+    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
+
+    @Binds
     @IntoMap
     @ViewModelKey(UserViewModel::class)
     abstract fun bindUserViewModel(viewModel: UserViewModel): ViewModel
 
     @Binds
-    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
+    @IntoMap
+    @ViewModelKey(PostViewModel::class)
+    abstract fun bindPostViewModel(viewModel: PostViewModel): ViewModel
 
 }

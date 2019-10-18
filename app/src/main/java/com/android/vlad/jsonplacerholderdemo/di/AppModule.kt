@@ -1,9 +1,9 @@
 package com.android.vlad.jsonplacerholderdemo.di
 
 import android.app.Application
-import com.android.vlad.dataproject.di.ViewModelModule
 import com.android.vlad.jsonplacerholderdemo.api.WebService
 import com.android.vlad.jsonplacerholderdemo.data.AppDatabase
+import com.android.vlad.jsonplacerholderdemo.posts.data.RemotePostDataSource
 import com.android.vlad.jsonplacerholderdemo.users.data.RemoteUserDataSource
 import dagger.Module
 import dagger.Provides
@@ -19,14 +19,18 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideLegoService(
+    fun provideUserService(
         @JsonPlacerAPI okhttpClient: OkHttpClient,
         converterFactory: GsonConverterFactory
     ) = provideService(okhttpClient, converterFactory, WebService::class.java)
 
     @Singleton
     @Provides
-    fun provideLegoThemeRemoteDataSource(webService: WebService) = RemoteUserDataSource(webService)
+    fun provideUserRemoteDataSource(webService: WebService) = RemoteUserDataSource(webService)
+
+    @Singleton
+    @Provides
+    fun providePostDataSource(webService: WebService) = RemotePostDataSource(webService)
 
 
     @JsonPlacerAPI
@@ -45,7 +49,11 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideLegoThemeDao(db: AppDatabase) = db.userDao()
+    fun provideUserDao(db: AppDatabase) = db.userDao()
+
+    @Singleton
+    @Provides
+    fun providePostDao(db: AppDatabase) = db.postDao()
 
 
     @CoroutineScopeIO

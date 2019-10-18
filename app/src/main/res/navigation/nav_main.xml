@@ -7,7 +7,23 @@
 
     <fragment
         android:id="@+id/userFragment"
-        tools:layout="@layout/fragment_users"
         android:name="com.android.vlad.jsonplacerholderdemo.users.ui.UserFragment"
-        android:label="UserFragment" />
+        android:label="UserFragment"
+        tools:layout="@layout/fragment_users">
+        <action
+            android:id="@+id/action_userFragment_to_postFragment"
+            app:destination="@id/postFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="com.android.vlad.jsonplacerholderdemo.posts.ui.PostFragment"
+        android:label="PostFragment"
+        tools:layout="@layout/fragment_posts">
+
+        <argument
+            android:name="userId"
+            app:argType="string" />
+    </fragment>
+
+
 </navigation>
